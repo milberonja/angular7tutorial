@@ -41,6 +41,7 @@ const routs: Routes = [
       {path: "contact", component: ContactComponent},
     ]
   },
+  {path: "", component: HelloWorldComponent}, 
   {path: "**", component: PageNotFoundComponent}
 ]
 
