@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Angular 7 Tutorial';
+
+  public messagefromParent = "Hey I came from Parent!";
+  public messageFromChild = "";
 }

@@ -9,6 +9,7 @@
   <a routerLink="/twoWayBindingComponent"><button>TWO WAY BINDING - TwoWayBindingComponent</button></a><br/>
   <a routerLink="/templateReferenceVariableComponent"><button>TEMPLATE REFERENCE VARIABLE - TemplateReferenceVariableComponent</button></a><br/>
   <a routerLink="/structuralDirectivesComponent"><button>STRUCTURAL DIRECTIVES - StructuralDirectivesComponent</button></a><br/>
+  <a routerLink="/componentInteraction"><button>COMPONENT INTERACTION - ComponentInteractionComponent</button></a><br/>
   <a routerLink="/usingServices"><button>USING SERVICES - EmployeeListComponent, EmployeeDetailListComponent</button></a><br/>
   <a routerLink="/routingComponent"><button>ROUTING - RoutingComponent</button></a><br/>
   <a routerLink="/routingAndNavigationComponent"><button>ROUTING AND NAVIGATION - RoutingAndNavigationComponent</button></a><br/>
@@ -16,3 +17,7 @@
   
 </div>
 <router-outlet></router-outlet>
+<br/><br/>
+<h2>Example of Component interaction - message from child component: {{messageFromChild}}</h2>
+
+<component-interaction [parentData]="messagefromParent"  (childEmiter)="messageFromChild=$event"></component-interaction>

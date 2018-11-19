@@ -20,6 +20,7 @@ import { RoutingAndNavigationComponent } from './routing-and-navigation/routing-
 import { LanguagesComponent } from './languages/languages.component';
 import { OverviewComponent } from './overview/overview.component';
 import { ContactComponent } from './contact/contact.component';
+import { ComponentInteractionComponent } from './component-interaction/component-interaction.component';
 
 
 
@@ -31,6 +32,7 @@ const routs: Routes = [
   {path: "classBindingComponent", component: ClassBindingComponent}, 
   {path: "twoWayBindingComponent", component: TwoWayBindingComponent}, 
   {path: "templateReferenceVariableComponent", component: TemplateReferenceVariableComponent}, 
+  {path: "componentInteraction", component: ComponentInteractionComponent},
   {path: "structuralDirectivesComponent", component: StructuralDirectivesComponent}, 
   {path: "usingServices", component: EmployeeListComponent},
   {
@@ -40,8 +42,7 @@ const routs: Routes = [
       {path: "overview", component: OverviewComponent},
       {path: "contact", component: ContactComponent},
     ]
-  },
-  {path: "", component: HelloWorldComponent}, 
+  }, 
   {path: "**", component: PageNotFoundComponent}
 ]
 
@@ -61,7 +62,8 @@ const routs: Routes = [
     RoutingAndNavigationComponent,
     LanguagesComponent,
     OverviewComponent,
-    ContactComponent
+    ContactComponent,
+    ComponentInteractionComponent
   ],
   imports: [
     BrowserModule,
