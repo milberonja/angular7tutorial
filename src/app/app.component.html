@@ -14,10 +14,17 @@
   <a routerLink="/routingComponent"><button>ROUTING - RoutingComponent</button></a><br/>
   <a routerLink="/routingAndNavigationComponent"><button>ROUTING AND NAVIGATION - RoutingAndNavigationComponent</button></a><br/>
   <a routerLink="/ovoJePogresnoUnesenURL"><button>PAGE NOT FOUND - PageNotFoundComponent</button></a><br/>
+  <a routerLink="/templateDrivenFormComponent"><button>TEMPLATE DRIVEN FORM - TemplateDrivenFormComponent</button></a><br/>
   
 </div>
 <router-outlet></router-outlet>
 <br/><br/>
-<h2>Example of Component interaction - message from child component: {{messageFromChild}}</h2>
+<h2 [hidden]="isHiden">Example of Component interaction - message from child component: {{messageFromChild}}</h2>
 
-<component-interaction [parentData]="messagefromParent"  (childEmiter)="messageFromChild=$event"></component-interaction>
+<component-interaction 
+  [hidden]="isHiden"
+  [parentData]="messagefromParent"  
+  (childEmiter)="messageFromChild=$event"></component-interaction>
+
+
+

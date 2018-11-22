@@ -21,6 +21,7 @@ import { LanguagesComponent } from './languages/languages.component';
 import { OverviewComponent } from './overview/overview.component';
 import { ContactComponent } from './contact/contact.component';
 import { ComponentInteractionComponent } from './component-interaction/component-interaction.component';
+import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
 
 
 
@@ -34,6 +35,7 @@ const routs: Routes = [
   {path: "templateReferenceVariableComponent", component: TemplateReferenceVariableComponent}, 
   {path: "componentInteraction", component: ComponentInteractionComponent},
   {path: "structuralDirectivesComponent", component: StructuralDirectivesComponent}, 
+  {path: "templateDrivenFormComponent", component: TemplateDrivenFormComponent}, 
   {path: "usingServices", component: EmployeeListComponent},
   {
     path: "languages/:id", 
@@ -63,7 +65,8 @@ const routs: Routes = [
     LanguagesComponent,
     OverviewComponent,
     ContactComponent,
-    ComponentInteractionComponent
+    ComponentInteractionComponent,
+    TemplateDrivenFormComponent
   ],
   imports: [
     BrowserModule,
