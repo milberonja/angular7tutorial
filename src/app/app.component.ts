@@ -19,7 +19,7 @@ export class AppComponent {
     router.events.subscribe((val) => {
       if(location.path() == '/componentInteraction'){
         this.isHiden = false;
-      } else{
+      } else {
         this.isHiden = true;
       }
       

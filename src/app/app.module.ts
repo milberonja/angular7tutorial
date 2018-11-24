@@ -22,6 +22,8 @@ import { OverviewComponent } from './overview/overview.component';
 import { ContactComponent } from './contact/contact.component';
 import { ComponentInteractionComponent } from './component-interaction/component-interaction.component';
 import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
+import { TemplateDrivenFormBindingComponent } from './template-driven-form-binding/template-driven-form-binding.component';
+import { TemplateDrivenFormValidationComponent } from './template-driven-form-validation/template-driven-form-validation.component';
 
 
 
@@ -36,7 +38,9 @@ const routs: Routes = [
   {path: "componentInteraction", component: ComponentInteractionComponent},
   {path: "structuralDirectivesComponent", component: StructuralDirectivesComponent}, 
   {path: "templateDrivenFormComponent", component: TemplateDrivenFormComponent}, 
-  {path: "usingServices", component: EmployeeListComponent},
+  {path: "templateDrivenFormComponent", component: TemplateDrivenFormComponent}, 
+  {path: "templateDrivenFormBindingComponent", component: TemplateDrivenFormBindingComponent},
+  {path: "templateDrivenFormValidationComponent", component: TemplateDrivenFormValidationComponent},
   {
     path: "languages/:id", 
     component: LanguagesComponent,
@@ -66,7 +70,9 @@ const routs: Routes = [
     OverviewComponent,
     ContactComponent,
     ComponentInteractionComponent,
-    TemplateDrivenFormComponent
+    TemplateDrivenFormComponent,
+    TemplateDrivenFormBindingComponent,
+    TemplateDrivenFormValidationComponent
   ],
   imports: [
     BrowserModule,

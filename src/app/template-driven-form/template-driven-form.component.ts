@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TemplateDrivenFormComponent implements OnInit {
 
+  private topics = ['Angular', 'React', 'Vue'];
+
   constructor() { }
 
   ngOnInit() {

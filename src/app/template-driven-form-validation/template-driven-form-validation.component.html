@@ -1,0 +1,66 @@
+<br/><hr><br/>
+<div class="container-fluid mb-5">
+  <h1>Template Driven Form With Binding And Validation - Example Form</h1>
+  <form #userForm="ngForm">
+    <br/> {{ userForm.value | json }}
+    <hr>
+    {{ formUser | json }}<br/><br/>
+    <h3>Form has not errors: <b>{{ userForm.form.valid }}</b></h3><br/>
+    <div class="form-group"> 
+      <label>Name</label>
+      <input type="text" #name class="form-control" name="name" [(ngModel)]="formUser.name" required>
+    </div>
+    All classes for Name input: <b>{{name.className}}</b>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" [class.is-invalid]="email.errors" class="form-control" #email="ngModel" name="email" [(ngModel)]="formUser.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+      <div *ngIf="email.errors && (email.invalid || email.touched)">
+        <small class="text-danger" *ngIf="email.errors.required">Input field can't be empty!</small>
+        <small class="text-danger" *ngIf="email.errors.pattern">Email pattern is not satisfaid!</small>
+      </div>
+    </div>
+    Is this Email input touched: <b>{{ email.touched}}</b><br/>
+    Is this Email input dirty: <b>{{ email.dirty}}</b><br/>
+    Is this Email input valid: <b>{{ email.valid}}</b><br/><br/>
+
+    <div class="form-group">
+      <label>Phone</label>
+      <input type="tel" [class.is-invalid]="!phone.valid" pattern="^\d{10}$" class="form-control" #phone="ngModel" name="phone" [(ngModel)]="formUser.phone" required>
+      <small class="text-danger" [class.d-none]="phone.valid">Phone must consiste 10 digits and can't be empty!</small>
+    </div>
+    This input is with error - red border becouse pattern expect 10 digits, so class.is-invalid is : <b>{{!phone.valid}}</b>
+    <br>
+    <h4>Try this validiti like that you will choose some topic and after that back on default value - 'I am interested in:'</h4>
+    <div class="form-group">
+      <label>Topic</label>
+      <select class="custom-select" [class.is-invalid]="topicHasError" #topic="ngModel" (change)="isExistError(topic.value)" (blur)="isExistError(topic.value)" name="topic" [(ngModel)]="formUser.topic">
+        <option value="default">I am interested in: </option>
+        <option *ngFor="let topic of topics">{{ topic }}</option>
+      </select>
+      <small class="text-danger" *ngIf="topicHasError">You did not choose topic - choose the topic from the list!</small>
+    </div>
+
+    <div class="mb-3">
+      <label>Time preference</label>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" name="timePreference" value="morning" [(ngModel)]="formUser.timePreference">
+        <label class="form-check-label">Morning (9AM - 12AM)</label>
+      </div>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" name="timePreference" value="evening" [(ngModel)]="formUser.timePreference">
+        <label class="form-check-label">Evening (5PM - 8PM)</label>
+      </div>
+    </div>
+
+    <div class="form-check mb-3">
+      <input type="checkbox" class="form-check-input" name="promotionalOffers" [(ngModel)]="formUser.promotionalOffers">
+      <label class="form-check-label">Send me promotional offers</label>
+    </div>
+
+    <button class="btn btn-primary" [disabled]="!(userForm.form.valid && !topicHasError)" type="submit">Submit</button>
+
+  </form>
+</div>
+  
+
