@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -24,6 +24,9 @@ import { ComponentInteractionComponent } from './component-interaction/component
 import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
 import { TemplateDrivenFormBindingComponent } from './template-driven-form-binding/template-driven-form-binding.component';
 import { TemplateDrivenFormValidationComponent } from './template-driven-form-validation/template-driven-form-validation.component';
+import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.component';
+import { ReactiveFormAndFormBuilderComponent } from './reactive-form-and-form-builder/reactive-form-and-form-builder.component';
+import { ReactiveFormAndValidationsComponent } from './reactive-form-and-validations/reactive-form-and-validations.component';
 
 
 
@@ -41,6 +44,9 @@ const routs: Routes = [
   {path: "templateDrivenFormComponent", component: TemplateDrivenFormComponent}, 
   {path: "templateDrivenFormBindingComponent", component: TemplateDrivenFormBindingComponent},
   {path: "templateDrivenFormValidationComponent", component: TemplateDrivenFormValidationComponent},
+  {path: "reactiveFormsComponent", component: ReactiveFormsComponent},
+  {path: "reactiveFormAndFormBuilderComponent", component: ReactiveFormAndFormBuilderComponent},
+  {path: "reactiveFormAndValidationsComponent", component: ReactiveFormAndValidationsComponent},
   {
     path: "languages/:id", 
     component: LanguagesComponent,
@@ -72,11 +78,15 @@ const routs: Routes = [
     ComponentInteractionComponent,
     TemplateDrivenFormComponent,
     TemplateDrivenFormBindingComponent,
-    TemplateDrivenFormValidationComponent
+    TemplateDrivenFormValidationComponent,
+    ReactiveFormsComponent,
+    ReactiveFormAndFormBuilderComponent,
+    ReactiveFormAndValidationsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot(routs)
   ],

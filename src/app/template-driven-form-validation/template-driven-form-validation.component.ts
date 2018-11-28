@@ -1,3 +1,4 @@
+import { EnrollmentService } from './../services/enrollment.service';
 import { FormUser } from './../form-user';
 import { Component, OnInit } from '@angular/core';
 
@@ -11,8 +12,10 @@ export class TemplateDrivenFormValidationComponent implements OnInit {
   private topics = ['Angular', 'React', 'Vue'];
   private formUser = new FormUser("Milan", "mil@gmail", "06386602", "default", "evening", true);
   private topicHasError = false;
+  private submited = false;
+  private errorMsg = '';
 
-  constructor() { }
+  constructor(private enrollmentService: EnrollmentService) { }
 
   ngOnInit() {
   }
@@ -23,6 +26,14 @@ export class TemplateDrivenFormValidationComponent implements OnInit {
     } else {
       this.topicHasError = false;
     }
+  }
+
+  onSubmit(){
+    this.submited = true;
+    this.enrollmentService.enrollment(this.formUser).subscribe(
+      data => { console.log("Data from server: " + data)},
+      error => { this.errorMsg = error.statusText}
+    );
   }
 
 }

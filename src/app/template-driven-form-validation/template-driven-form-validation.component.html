@@ -1,7 +1,9 @@
 <br/><hr><br/>
 <div class="container-fluid mb-5">
   <h1>Template Driven Form With Binding And Validation - Example Form</h1>
-  <form #userForm="ngForm">
+  <h2 *ngIf="submited">Entire form is disapired like a sign to form is submitted and also to ensure double submiting not occure by user mistake</h2>
+  <h3 *ngIf="errorMsg" class="alert alert-danger">{{errorMsg}}</h3>
+  <form #userForm="ngForm" (ngSubmit)="onSubmit()" *ngIf="!submited">
     <br/> {{ userForm.value | json }}
     <hr>
     {{ formUser | json }}<br/><br/>

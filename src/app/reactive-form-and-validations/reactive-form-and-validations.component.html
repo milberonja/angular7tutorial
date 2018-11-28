@@ -1,0 +1,72 @@
+<br/><hr><br/>
+<div class="container-fluid">
+  <h1>Reactive Forms And Validations - Example Form</h1>
+  
+  <form [formGroup]="reactiveFormModel" (ngSubmit)="onSubmit()">
+    <h5>{{ reactiveFormModel.value | json }}</h5>
+
+    <div class="form-group"> 
+      <label>Username</label>
+      <input type="text" class="form-control" [class.is-invalid]="_userName.invalid" formControlName="userName">
+      <div *ngIf="_userName.invalid">
+        <small *ngIf="_userName.errors?.required" class="text-danger">This input field must be filled<br/></small>
+        <small *ngIf="!_userName.errors?.minLength" class="text-danger">Must be minimum 3 leters<br/></small>
+        <small *ngIf="_userName.errors?.forbiddenName" class="text-danger">{{_userName.errors?.forbiddenName.value}} userName is not alowed</small>
+      </div>
+    </div>
+
+    <div class="form-group"> 
+      <label>Password</label>
+      <input type="password" class="form-control" [class.is-invalid]="_password.invalid && _password.touched" formControlName="password">
+      <div *ngIf="_password.invalid && _password.touched">
+        <small *ngIf="_password.errors?.required" class="text-danger">This input field must be filled<br/></small>
+        <small *ngIf="!_password.errors?.minLength" class="text-danger">Must be minimum 3 leters<br/></small>
+        <small *ngIf="_password.errors?.forbiddenName" class="text-danger">{{_password.errors?.forbiddenName.value}} can't be a password</small>
+      </div>
+    </div>
+
+    <div class="form-group"> 
+      <label>Confirm Password</label>
+      <input type="password" class="form-control" [class.is-invalid]="reactiveFormModel.errors?.misMatch" formControlName="confPass">
+      <small *ngIf="reactiveFormModel.errors?.misMatch" class="text-danger">Confirm Password is not equal as Password</small>
+    </div>
+    
+    <div class="form-group"> 
+      <label>Email</label>
+      <button type="button" class="btn btn-secondary btn-sm ml-2" (click)="addAlternativeEmail()">Add new Email</button>
+      <input type="email" [class.is-invalid]="_email.invalid && _email.touched"  class="form-control" formControlName="email">
+      <small class="text-danger" [class.d-none]="!_email.errors?.required || _email.untouched">You have to fill this imput field by email how you could be able subscribe</small>
+      <div formArrayName="alternativEmails"  *ngFor="let email of alternativEmails.controls; let i=index">
+        <input type="text" class="form-control my-1" [formControlName]="i">
+      </div>
+    </div>
+
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" formControlName="subscribe">
+      <label class="form-check-label">Do you want to subscribe?</label>
+    </div>
+
+    <div formGroupName="address">
+        <div class="form-group"> 
+          <label>State</label>
+          <input type="text" class="form-control" formControlName="state">
+        </div>
+
+        <div class="form-group"> 
+          <label>City</label>
+          <input type="text" class="form-control" formControlName="city">
+        </div>
+
+        <div class="form-group"> 
+          <label>Street</label>
+          <input type="text" class="form-control" formControlName="street">
+        </div>
+    </div>
+
+    <button [disabled]="reactiveFormModel.invalid" class="btn btn-primary" type="submit">Register</button>
+   
+  </form>
+
+</div>
+
+
