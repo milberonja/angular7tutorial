@@ -27,6 +27,7 @@ import { TemplateDrivenFormValidationComponent } from './template-driven-form-va
 import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.component';
 import { ReactiveFormAndFormBuilderComponent } from './reactive-form-and-form-builder/reactive-form-and-form-builder.component';
 import { ReactiveFormAndValidationsComponent } from './reactive-form-and-validations/reactive-form-and-validations.component';
+import { BuildingApplicationComponent } from './building-application/building-application.component';
 
 
 
@@ -46,7 +47,8 @@ const routs: Routes = [
   {path: "templateDrivenFormValidationComponent", component: TemplateDrivenFormValidationComponent},
   {path: "reactiveFormsComponent", component: ReactiveFormsComponent},
   {path: "reactiveFormAndFormBuilderComponent", component: ReactiveFormAndFormBuilderComponent},
-  {path: "reactiveFormAndValidationsComponent", component: ReactiveFormAndValidationsComponent},
+  {path: "reactiveFormAndValidationsComponent", component: ReactiveFormAndValidationsComponent}, 
+  {path: "buildingApplicationComponent", component: BuildingApplicationComponent},
   {
     path: "languages/:id", 
     component: LanguagesComponent,
@@ -81,7 +83,8 @@ const routs: Routes = [
     TemplateDrivenFormValidationComponent,
     ReactiveFormsComponent,
     ReactiveFormAndFormBuilderComponent,
-    ReactiveFormAndValidationsComponent
+    ReactiveFormAndValidationsComponent,
+    BuildingApplicationComponent
   ],
   imports: [
     BrowserModule,
